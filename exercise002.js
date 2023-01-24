@@ -2,6 +2,7 @@ import fetch from "node-fetch";
 
 const jsonTypicode = "https://jsonplaceholder.typicode.com/todos/1";
 const catFacts = "https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=1";
+const pirateTranslate = 'https://api.funtranslations.com/translate/pirate.json';
 
 /*const fetchData = (apiEndPoint) => {
   fetch(apiEndPoint)
@@ -36,3 +37,22 @@ const fetchCatFacts = async (apiEndPoint) => {
 }
 
 fetchCatFacts(catFacts);
+
+const translateToPirate = async (apiEndPoint, textToConvert) => {
+  const data = { text: textToConvert };
+  try {
+    const response = await fetch(apiEndPoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    const jsonData = await response.json();
+    console.log(jsonData.contents.translated);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+translateToPirate(pirateTranslate, 'She sells sea shells on the sea shore');
