@@ -22,7 +22,7 @@ const fetchData = async (apiEndPoint) => {
   }
 }
 
-//fetchData(jsonTypicode);
+fetchData(jsonTypicode);
 
 // This seemed good in theory. The amount of actual facts vs random gibberish is depressingly small!
 const fetchCatFacts = async (apiEndPoint) => {
