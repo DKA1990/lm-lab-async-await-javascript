@@ -12,9 +12,22 @@ const promise = new Promise((resolve, reject) => {
 });
 
 // Your solution(s) to exercise001 here!
+// Task 1
 promise.then((value) => {
 	console.log(`Yay! Promise resolved with response: ${value}`);
 })
 .catch((error) => {
 	console.log(`Boo. Promise rejected with response: ${error}`);
 });
+
+// Task 2
+const promiseReturn = async () => {
+	try {
+		const resolvedValue = await promise;
+		console.log(`Yay! Promise resolved with response: ${resolvedValue}`);
+	} catch (error) {
+		console.log(`Boo. Promise rejected with response: ${error}`);
+	}
+};
+
+promiseReturn();
